@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+
+    <section>
+        <div class="formconatiner">
+            <form id="myForm">
+                <div>
+
+                    <div>
+                        <label for="Your Name /आवेदक का नाम*">Your Name /आवेदक का नाम*</label>
+                        <input type="text" name="Your Name /आवेदक का नाम*">
+                    </div>
+                    <div>
+                        <label for="State /राज्य*">State /राज्य*</label>
+                        <input type="text" name="State /राज्य*">
+                    </div>
+                </div>
+
+                <div>
+                    <div>
+                        <label for="Phone*">Phone*</label>
+                        <input type="text" name="Phone*">
+                    </div>
+                    <div>
+                        <label for="No /वाहन पंजीकरण संख्या*">No /वाहन पंजीकरण संख्या*</label>
+                        <input type="text" name="No /वाहन पंजीकरण संख्या*">
+                    </div>
+                </div>
+
+                <label for="Number of Plates/प्लेटों की संख्या">Number of Plates/प्लेटों की संख्या</label>
+                <select name="number_of_plates" id="number_of_plates">
+                    <option selected></option>
+                    <option value="number1">1 Plate</option>
+                    <option value="number2">2 Plate</option>
+                </select>
+
+                <label for="Select Plate Type/ प्लेट प्रकार">Select Plate Type/ प्लेट प्रकार</label>
+                <select name="plate_type" id="plate_type">
+                    <option value="two">Two Wheeler</option>
+                    <option value="four">Four Wheeler</option>
+                    <option value="Electric">Electric Vehicle</option>
+                    <option value="color">Apply for Only Colour Sticker</option>
+                    <option value="heavy">Heavy Vehicle</option>
+                    <option value="hsrpcolor">High Security Registration Plate with Colour Sticker</option>
+                </select>
+
+                <label for="Address /पता*">Address /पता*</label>
+                <input type="text" name="Address /पता*">
+
+                <input type="submit" value="submit" style="cursor: pointer; background-color: rgb(47, 47, 198); color: white;">
+            </form>
+        </div>
+    </section>
+  
+
+    <script>
+        document.getElementById('myForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const plateType = document.getElementById('plate_type').value;
+            let redirectUrl = '';
+
+            switch (plateType) {
+                case 'two':
+                    redirectUrl = './twopayment.html';
+                    break;
+              
+                case 'four':
+                    redirectUrl = './fourpayment.html';
+                    break;
+                case 'Electric':
+                    redirectUrl = './electornpayemt.html';
+                    break;
+                case 'color':
+                    redirectUrl = './colorpaymment.html';
+                    break;
+                case 'heavy':
+                    redirectUrl = './heavypayment.html';
+                    break;
+                case 'hsrpcolor':
+                    redirectUrl = './hsrpcolorpayment.html';
+                    break;
+                default:
+                    redirectUrl = 'default.html';
+            }
+
+            window.location.href = redirectUrl;
+        });
+    </script>
+    
+</body>
+</html>
