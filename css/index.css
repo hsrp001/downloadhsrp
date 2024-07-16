@@ -98,6 +98,10 @@ select
     border-radius: 5px;
 }
 @media (max-width:500px)
+
+.box {
+    min-width: 95%; 
+}
  {
     
 form div
